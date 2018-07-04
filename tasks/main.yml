@@ -97,6 +97,17 @@
   notify: restart shadowsocks-libev
   tags: config
 
+- name: configure acl
+  copy:
+    src: acl.txt
+    dest: "{{ shadowsocks_home }}/acl.txt"
+    mode: 640
+    owner: root
+    group: root
+    force: yes
+  notify: restart shadowsocks-libev
+  tags: config
+
 - name: sync init service (7)
   template:
     src: shadowsocks-libev.service
